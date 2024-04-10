@@ -15,28 +15,29 @@ import java.util.Optional;
 public class NoticiaController {
     @Autowired
     NoticiaService noticiaService;
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping
     public ArrayList<Noticia> getUsers(){
         return this.noticiaService.getNoticias();
     }
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public Noticia saveNoticia(@RequestBody Noticia noticia){
 
         return this.noticiaService.SaveNoticias(noticia);
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/{id}")
     public Optional<Noticia> getNoticiaByID(@PathVariable Long id){
 
         return this.noticiaService.getNoticiaByid(id);
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping(path = "/{id}")
     public Noticia UpdateNoticia(@RequestBody Noticia request, @PathVariable("id")Long id){
         return this.noticiaService.updateNoticiaById(request,id);
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @DeleteMapping(path = "/{id}")
     public String deleteNoticiaById(@PathVariable("id")Long id){
         boolean ok = this.noticiaService.deleteNoticia(id);

@@ -13,27 +13,27 @@ import java.util.Optional;
 public class EmpresaController {
     @Autowired
     EmpresaService empresaService;
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping
     public ArrayList<Empresa> getUsers(){
         return this.empresaService.getEmpresas();
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public Empresa saveEmpresa(@RequestBody Empresa empresa){
         return this.empresaService.SaveEmpresas(empresa);
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping(path = "/{id}")
     public Optional<Empresa> getEmpresaByID(@PathVariable Long id){
         return this.empresaService.getById(id);
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping(path = "/{id}")
     public Empresa UpdateUser(@RequestBody Empresa request,@PathVariable("id")Long id){
         return this.empresaService.updateById(request,id);
     }
-
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @DeleteMapping(path = "/{id}")
     public String deleteById(@PathVariable("id")Long id){
         boolean ok = this.empresaService.deleteEmpresa(id);
