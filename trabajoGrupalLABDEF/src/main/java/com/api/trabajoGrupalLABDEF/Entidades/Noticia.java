@@ -1,5 +1,6 @@
 package com.api.trabajoGrupalLABDEF.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,12 +26,10 @@ public class Noticia {
     private String contenidoHtml;
     private boolean publicada;
     private Date fechaPublicacion;
-
-
-    @OneToOne
-    @JoinColumn(name = "empresa_id", referencedColumnName = "id")
+    @ManyToOne()
+    @JoinColumn(name = "Empresa_id")
+    @JsonIgnore
     private Empresa empresa;
-
 
 
 

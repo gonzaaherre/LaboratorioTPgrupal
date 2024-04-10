@@ -32,7 +32,6 @@ public class NoticiaService {
         noticia.setContenidoHtml(request.getContenidoHtml());
         noticia.setPublicada(request.isPublicada());
         noticia.setFechaPublicacion(request.getFechaPublicacion());
-        noticia.setEmpresa(request.getEmpresa());
         return noticia;
     }
 

@@ -1,10 +1,11 @@
 package com.api.trabajoGrupalLABDEF.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,8 +26,8 @@ public class Empresa {
     private double longitud;
     private String domicilio;
     private String email;
-
-    @OneToOne(mappedBy = "empresa", cascade = CascadeType.ALL)
-    private Noticia noticia;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Empresa_id")
+    private List<Noticia> noticias = new ArrayList<>();
 
 }
