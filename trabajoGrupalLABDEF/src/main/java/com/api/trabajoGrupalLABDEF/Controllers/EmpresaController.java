@@ -1,11 +1,13 @@
 package com.api.trabajoGrupalLABDEF.Controllers;
 
 import com.api.trabajoGrupalLABDEF.Entidades.Empresa;
+import com.api.trabajoGrupalLABDEF.Entidades.Noticia;
 import com.api.trabajoGrupalLABDEF.Services.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -13,6 +15,12 @@ import java.util.Optional;
 public class EmpresaController {
     @Autowired
     EmpresaService empresaService;
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @GetMapping("{id}/noticias")
+    public List<Noticia> obtenerNoticiasPorEmpresa(@PathVariable Long id) {
+        return empresaService.obtenerNoticiasPorEmpresaId(id);
+    }
+
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @GetMapping
     public ArrayList<Empresa> getUsers(){

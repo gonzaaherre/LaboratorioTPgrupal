@@ -1,6 +1,7 @@
 package com.api.trabajoGrupalLABDEF.Services;
 
 import com.api.trabajoGrupalLABDEF.Entidades.Noticia;
+import com.api.trabajoGrupalLABDEF.Entidades.NoticiaConEmpresaDTO;
 import com.api.trabajoGrupalLABDEF.Repositories.NoticiaRepository;
 import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,17 @@ public class NoticiaService {
         return this.noticiaRepository.save(noticia);
     }
 
-    public Optional<Noticia> getNoticiaByid(Long id){
-        return this.noticiaRepository.findById(id);
+    public NoticiaConEmpresaDTO obtenerNoticiaConEmpresa(Long noticiaId) {
+        Optional<Object[]> result = noticiaRepository.findNoticiaWithEmpresaId(noticiaId);
+
+        if (result.isPresent()) {
+            Object[] objects = result.get();
+            Noticia noticia = (Noticia) objects[0]; // La noticia está en la posición 0 del array
+            Long idEmpresa = (Long) objects[1]; // El ID de la empresa está en la posición 1 del array
+            return new NoticiaConEmpresaDTO(noticia, idEmpresa);
+        } else {
+            return null;
+        }
     }
     public Noticia updateNoticiaById(Noticia request, Long id){
         Noticia noticia = noticiaRepository.findById(id).get();

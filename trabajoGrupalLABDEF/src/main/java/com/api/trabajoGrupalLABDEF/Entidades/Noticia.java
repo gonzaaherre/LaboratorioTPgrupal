@@ -26,7 +26,7 @@ public class Noticia {
     private String contenidoHtml;
     private boolean publicada;
     private Date fechaPublicacion;
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Empresa_id")
     @JsonIgnore
     private Empresa empresa;

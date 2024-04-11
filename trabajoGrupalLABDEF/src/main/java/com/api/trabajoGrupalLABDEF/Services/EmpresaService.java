@@ -1,11 +1,13 @@
 package com.api.trabajoGrupalLABDEF.Services;
 
 import com.api.trabajoGrupalLABDEF.Entidades.Empresa;
+import com.api.trabajoGrupalLABDEF.Entidades.Noticia;
 import com.api.trabajoGrupalLABDEF.Repositories.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +17,10 @@ public class EmpresaService {
 
     public ArrayList<Empresa> getEmpresas(){
         return (ArrayList<Empresa>) empresaRepository.findAll();
+    }
+
+    public List<Noticia> obtenerNoticiasPorEmpresaId(Long empresaId) {
+        return empresaRepository.findByNoticias_Empresa_Id(empresaId);
     }
 
     public Empresa SaveEmpresas(Empresa empresa){
