@@ -3,11 +3,12 @@ package com.api.trabajoGrupalLABDEF.Services;
 import com.api.trabajoGrupalLABDEF.Entidades.Noticia;
 import com.api.trabajoGrupalLABDEF.Entidades.NoticiaConEmpresaDTO;
 import com.api.trabajoGrupalLABDEF.Repositories.NoticiaRepository;
-import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,6 +21,16 @@ public class NoticiaService {
     }
     public Noticia SaveNoticias(Noticia noticia){
         return this.noticiaRepository.save(noticia);
+    }
+
+    //busca por titulo
+    public List<Noticia> buscarPorResumen(String resumen) {
+        return noticiaRepository.findByResumen(resumen);
+    }
+
+    //insertar noticia con idempresa
+    public void insertNoticiaWithEmpresaId(String titulo, String resumen, String imagen, String contenidoHtml, boolean publicada, Date fechaPublicacion, Long empresaId) {
+        noticiaRepository.insertNoticiaWithEmpresaId(titulo, resumen, imagen, contenidoHtml, publicada, fechaPublicacion, empresaId);
     }
 
     public NoticiaConEmpresaDTO obtenerNoticiaConEmpresa(Long noticiaId) {

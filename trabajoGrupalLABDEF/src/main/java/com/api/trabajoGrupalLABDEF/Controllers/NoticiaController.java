@@ -3,12 +3,15 @@ package com.api.trabajoGrupalLABDEF.Controllers;
 import com.api.trabajoGrupalLABDEF.Entidades.Empresa;
 import com.api.trabajoGrupalLABDEF.Entidades.Noticia;
 import com.api.trabajoGrupalLABDEF.Entidades.NoticiaConEmpresaDTO;
+import com.api.trabajoGrupalLABDEF.Entidades.NoticiaDTO;
 import com.api.trabajoGrupalLABDEF.Services.NoticiaService;
 import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,6 +26,21 @@ public class NoticiaController {
     }
 
 
+    //buscar noticia por resumen
+    @GetMapping("/buscarPorResumen")
+    public List<Noticia> buscarPorTitulo(@RequestParam String resumen) {
+        return noticiaService.buscarPorResumen(resumen);
+    }
+
+    @PostMapping("/insertar")
+    public ResponseEntity<String> insertarNoticiaConEmpresaId(@RequestParam  NoticiaDTO noticiaDTO, @PathVariable Long empresaId) {
+        noticiaService.insertNoticiaWithEmpresaId(noticiaDTO.getTitulo(), noticiaDTO.getResumen(), noticiaDTO.getImagen(), noticiaDTO.getContenidoHtml(), noticiaDTO.isPublicada(), noticiaDTO.getFechaPublicacion(), empresaId);
+        return ResponseEntity.ok("Noticia creada correctamente");
+    }
+
+
+
+    
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping
     public Noticia saveNoticia(@RequestBody Noticia noticia){
