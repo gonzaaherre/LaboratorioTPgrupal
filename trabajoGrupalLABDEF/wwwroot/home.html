@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>HOME</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Links -->
+    <link rel="stylesheet" href="css/camera.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/google-map.css">
+
+
+    <!--JS-->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/rd-smoothscroll.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+            <img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+        </a>
+    </div>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <script src='js/device.min.js'></script>
+  </head>
+  <body>
+  <div class="page">
+  <!--========================================================
+                            HEADER
+  =========================================================-->
+    <header>  
+      <div class="container top-sect">
+        <div class="navbar-header">
+          <h1 class="navbar-brand">
+            <a data-type='rd-navbar-brand' id="titulo" href="./"><small> <br>Empresa</small></a>
+          </h1>
+          <a class="search-form_toggle" href="#"></a>
+        </div>
+
+        <div class="help-box text-right">
+          <p>Telefono</p>
+          <a href="callto:#" id="telefono"></a>
+          <small><span>Horario:</span> <small id="horario"></small> </small>
+        </div>
+      </div>
+     
+	  <div id="stuck_container" class="stuck_container">
+        <div class="container">   
+			<nav class="navbar navbar-default navbar-static-top pull-left">            
+				<div class="">  
+				  <ul class="nav navbar-nav sf-menu sf-js-enabled sf-arrows" data-type="navbar">
+					<li style="list-style: none;" class="active">
+					  <a href="home.html">INICIO</a>
+					</li>
+					<li style="list-style: none;">
+					  <a href="./">LISTA EMPRESAS</a>
+					</li>
+				  </ul>                           
+				</div>
+			</nav>
+			<form class="search-form" action="buscador.html" method="GET" accept-charset="utf-8">
+			  <label class="search-form_label">
+				<input class="search-form_input" type="text" name="buscar" autocomplete="off" placeholder="Ingrese Texto"/>
+				<span class="search-form_liveout"></span>
+			  </label>
+			  <button class="search-form_submit fa-search" type="submit"></button>
+			</form>
+             
+        </div>
+
+      </div>  
+
+    </header>
+
+  <!--========================================================
+                            CONTENT
+  =========================================================-->
+
+    <main>        
+
+      <section class="well well1 well1_ins1">
+        <div class="camera_container">
+          <div id="camera" class="camera_wrap">
+            <div id="imagennot1" data-src="images/page-1_slide2.jpg" >
+              <div class="camera_caption fadeIn">
+                <div class="jumbotron jumbotron1">
+                  <em>
+                    <a href="detalle.html" id="noticia1">Titulo Noticia</a>
+                  </em>
+                  <div class="wrap">
+                    <p id="resumennot1">
+                      Resumen
+                    </p>
+                    <a id="detallenot1" href="detalle.html" class="btn-link fa-angle-right"></a>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            <div data-src="images/page-1_slide2.jpg">
+              <div class="camera_caption fadeIn">
+                <div class="jumbotron jumbotron2">
+                  <em id="noticia2">
+                    Titulo Noticia
+                  </em>
+                  <div class="wrap">
+                    <p id="resumennot2">
+                      Resumen
+                    </p>
+                    <a href="#" class="btn-link hov_prime fa-angle-right"></a>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            <div data-src="images/page-1_slide3.jpg">
+              <div class="camera_caption fadeIn">
+                <div class="jumbotron">
+                  <em id="noticia3">
+                    Titulo Noticia
+                  </em>
+                  <div class="wrap">
+                    <p id="resumennot3">
+                      Resumen
+                    </p>
+                    <a href="#" class="btn-link fa-angle-right"></a>
+                  </div>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </section>
+      
+      <section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>
+        <div class="container">
+        <h2 class="txt-pr">
+        Quienes Somos
+        </h2>
+          <div class="row">
+            <div class="col">
+              <p style="text-align:justify" id="somos">
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!--========================================================
+                            FOOTER
+  =========================================================-->
+  <footer class="top-border">
+	<section class="well well2 wow fadeIn  bg1" data-wow-duration='3s'>
+        <div class="container">
+        <h2 class="txt-pr">
+        Donde estamos
+        </h2>
+        </div>
+    </section>
+	<div class="map">
+      <iframe id="mapa" src="" width="1600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <section class="well1">
+      <div class="container"> 
+            <p class="rights">
+              Denominación Empresa  &#169; <span id="copyright-year"></span>
+              <a href="index-5.html">Privacy Policy</a>
+              <!-- {%FOOTER_LINK} -->
+            </p>          
+      </div> 
+    </section>    
+  </footer>
+  </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->         
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/tm-scripts.js"></script>   
+    <script>
+      const urlParams= new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      fetch(`http://localhost:8080/empresa/${id}`)
+      .then(response=> response.json())
+      .then(data =>{
+        const tituloElement= document.getElementById('titulo');
+        tituloElement.textContent=data.denominacion;
+        const telefonoElement= document.getElementById('telefono');
+        telefonoElement.textContent=data.telefono;
+        const horarioElement= document.getElementById('horario');
+        horarioElement.textContent=data.horarioDeAtencion;
+        const somosElement=document.getElementById('somos');
+        somosElement.textContent=data.quinesSomos;
+        const mapaElement= document.getElementById('mapa');
+        mapaElement.src=`https://www.google.com/maps/embed/v1/view?key=AIzaSyA_-vISK2DkMsS1726R4qiBj-k-jfCvjpw&center=${data.latitud},${data.longitud}&zoom=15`
+        const Noticia1Element = document.getElementById('noticia1');
+        var contador=0;
+        //empresa.noticias.forEach(noticia => {
+          //const titulo${contador}=noticia.titulo;
+          //const resumen${contador}=noticia.resumen;
+          //contador+=1;
+          
+        //});
+        const primeraNoticia=data.noticias[0];
+        Noticia1Element.textContent=primeraNoticia.titulo;
+        const Resumen1Element= document.getElementById('resumennot1');
+        Resumen1Element.textContent=primeraNoticia.resumen
+        var elem= document.createElement("img");
+        elem.src="images/page-1_slide5.jpg";
+        var imagen1Element=document.getElementById('imagennot1');
+        imagen1Element.appendChild(elem);
+        const detalle1Element= document.getElementById('detallenot1');
+        detalle1Element.href=`detalle.html?id=${primeraNoticia.id}&id2=${data.id}`;
+      })
+    </script> 
+  <!-- </script> -->
+
+
+  </body>
+</html>
